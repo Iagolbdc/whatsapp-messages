@@ -10,8 +10,9 @@ const HORA_FIM = 21;
 
 const PAUSA_A_CADA = 50;
 
-const CSV_PATH = "./src/fachesf-atualizado.csv";
-const MENSAGEM_PATH = "./src/mensagem.txt";
+const CSV_PATH = "./media/contatos.csv";
+const IMGE_PATH = './media/imagem.jpg';
+const MENSAGEM_PATH = "./media/mensagem.txt";
 
 const client = new Client({
     authStrategy: new LocalAuth(),
