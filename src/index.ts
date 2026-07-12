@@ -11,6 +11,7 @@ const HORA_FIM = 21;
 const PAUSA_A_CADA = 50;
 
 const CSV_PATH = "./src/contatos.csv";
+const MENSAGEM_PATH = "./src/mensagem.txt";
 
 const client = new Client({
     authStrategy: new LocalAuth(),
@@ -53,6 +54,8 @@ client.on('ready', async () => {
 async function iniciarDisparo() {
 
     const contatos = await lerCSV(CSV_PATH);
+
+    const mensagem = lerMensagem(MENSAGEM_PATH);
 
     const imagem = MessageMedia.fromFilePath('./src/imagem.jpg');
 
@@ -102,7 +105,7 @@ async function iniciarDisparo() {
                 contatoId._serialized,
                 imagem,
                 {
-                    caption: gerarMensagem(contato.nome)
+                    caption: mensagem
                 }
             );
             
@@ -288,10 +291,24 @@ function sleep(ms: number) {
 
 }
 
+function lerMensagem(caminho: string): string {
 
+    try {
+
+        return fs.readFileSync(caminho, "utf8").trim();
+
+    } catch (err) {
+
+        console.error("Não foi possível ler o arquivo de mensagem.");
+        throw err;
+
+    }
+
+}
 
 console.log('[INICIALIZAÇÃO] Iniciando cliente WhatsApp...');
 client.initialize().catch(error => {
     console.error(error);
     process.exit(1);
 });
+
