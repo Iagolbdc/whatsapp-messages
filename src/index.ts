@@ -10,7 +10,7 @@ const HORA_FIM = 21;
 
 const PAUSA_A_CADA = 50;
 
-const CSV_PATH = "./src/contatos.csv";
+const CSV_PATH = "./src/fachesf-atualizado.csv";
 const MENSAGEM_PATH = "./src/mensagem.txt";
 
 const client = new Client({
@@ -139,8 +139,8 @@ async function iniciarDisparo() {
 
             // Pausa normal
             const espera = tempoAleatorio(
-                10 * 1000,
-                30 * 1000
+                15 * 1000,
+                50 * 1000
             );
 
             console.log(
