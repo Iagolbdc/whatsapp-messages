@@ -140,7 +140,7 @@ async function iniciarDisparo() {
             // Pausa normal
             const espera = tempoAleatorio(
                 15 * 1000,
-                50 * 1000
+                80 * 1000
             );
 
             console.log(
