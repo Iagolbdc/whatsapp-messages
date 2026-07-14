@@ -58,7 +58,7 @@ async function iniciarDisparo() {
 
     const mensagem = lerMensagem(MENSAGEM_PATH);
 
-    const imagem = MessageMedia.fromFilePath('./src/imagem.jpg');
+    const imagem = MessageMedia.fromFilePath(IMGE_PATH);
 
     let enviados = 0;
 
